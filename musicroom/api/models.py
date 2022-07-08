@@ -1,4 +1,13 @@
 from django.db import models
+import string
+import random
+
+def generate_code():
+    while True:
+        generated_code = "".join(random.choices(string.ascii_letters, k=6))
+        if room.objects.filter(code=generated_code).count() == 0 :
+            break
+    return generated_code
 
 # Create your models here.
 class room(models.Model):
